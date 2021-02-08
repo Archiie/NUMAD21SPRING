@@ -1,5 +1,6 @@
 package edu.neu.madcourse.numad21s_archita_sundaray;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+        });
+
+        //action listener to the button
+        Button clickyButton = findViewById(R.id.clickyButton);
+        clickyButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ClickyClicky.class); //from - to mapping
+            startActivity(intent); //this executes the intent
         });
     }
 

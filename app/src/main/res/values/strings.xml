@@ -5,7 +5,7 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="about">About</string>
-    <string name="back">Back</string>
+    <string name="home">Home</string>
 
     <string name="first_fragment">Hello World!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -17,5 +17,6 @@
     <string name="buttonD">D</string>
     <string name="buttonE">E</string>
     <string name="buttonF">F</string>
-    <string name="clicky_clicky">Clicky clicky</string>
+    <string name="clikyButton">Clicky clicky</string>
+    <string name="greetings">Hey, buddy!</string>
 </resources>
