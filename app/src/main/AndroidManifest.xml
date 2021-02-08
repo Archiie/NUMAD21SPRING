@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_as_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21S_Archita_Sundaray">
+        <!--crashes if not present-->
+        <activity android:name=".ClickyClicky"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
