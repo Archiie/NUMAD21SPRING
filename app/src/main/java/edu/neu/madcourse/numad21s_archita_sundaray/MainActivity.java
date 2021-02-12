@@ -33,10 +33,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //action listener to the button
+        //action listener to the "Clicky Clicky" button
         Button clickyButton = findViewById(R.id.clickyButton);
         clickyButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ClickyClicky.class); //from - to mapping
+            startActivity(intent); //this executes the intent
+        });
+
+        //action listener to the "Link Collector" button
+        Button linkCollectorButton = findViewById(R.id.linkCollectorButton);
+        linkCollectorButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LinkCollector.class); //from - to mapping
             startActivity(intent); //this executes the intent
         });
     }
