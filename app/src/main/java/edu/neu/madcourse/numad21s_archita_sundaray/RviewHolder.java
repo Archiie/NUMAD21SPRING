@@ -40,6 +40,6 @@ public class RviewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
-        
+
     }
 }
