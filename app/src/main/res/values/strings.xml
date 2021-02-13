@@ -20,4 +20,5 @@
     <string name="clikyButton">Clicky clicky</string>
     <string name="greetings">Hey, buddy!</string>
     <string name="linkCollectorButton">Link Collector</string>
+    <string name="addLinks">Add</string>
 </resources>
