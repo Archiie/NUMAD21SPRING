@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
@@ -142,6 +143,30 @@ public class MainActivity extends AppCompatActivity {
             itemList.add(item2);
             itemList.add(item3);
         }
+    }
+
+    private void createRecyclerView() {
+        rLayoutManager = new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        rviewAdapter = new RviewAdapter(itemList);
+
+        ItemClickListener itemClickListener = new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                itemList.get(position).onItemClick(position);
+                rviewAdapter.notifyItemChanged(position);
+            }
+
+            @Override
+            public void onCheckBoxClick(int position) {
+                itemList.get(position).onCheckBoxClick(position);
+                rviewAdapter.notifyItemChanged(position);
+            }
+        };
+        rviewAdapter.setOnItemClickListener(itemClickListener);
+        recyclerView.setAdapter(rviewAdapter);
+        recyclerView.setLayoutManager(rLayoutManager);
     }
 
     @Override
