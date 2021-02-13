@@ -8,6 +8,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
@@ -15,7 +17,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+    //essential components needed for Recycler View: RecyclerView, Adapter, LayoutManager
+    private ArrayList<ItemCard> itemList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private RviewAdapter rviewAdapter;
+    private RecyclerView.LayoutManager rLayoutManager;
+    private FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +56,20 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LinkCollector.class); //from - to mapping
             startActivity(intent); //this executes the intent
         });
+
+        //do I do this separately or can I add it to the above code?
+        init(savedInstanceState);
+        addButton = findViewById(R.id.addButton);
+        addButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                int pos = 0;
+                addItem(pos);
+            }
+        });
+
+
+        
     }
 
     @Override
