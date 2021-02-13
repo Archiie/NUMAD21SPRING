@@ -113,6 +113,37 @@ public class MainActivity extends AppCompatActivity {
         createRecyclerView();
     }
 
+    private void initialItemData(Bundle savedInstanceState) {
+        //when the activity is not opened the first time
+        if (savedInstanceState != null && savedInstanceState.containsKey(NUMBER_OF_ITEMS)) {
+            if (itemList == null || itemList.size() == 0) {
+                int size = savedInstanceState.getInt(NUMBER_OF_ITEMS);
+                //retrieving keys that were stored in the instance
+                for (int i = 0; i < size; i++) {
+                    String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + 0);
+                    String itemDesc = savedInstanceState.getString(KEY_OF_INSTANCE + i + 1);
+                    boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + 2);
+
+                    //making sure that there are no duplicates like this: "XXX(checked)"
+                    if (isChecked) {
+                        itemName = itemName.substring(0, itemName.lastIndexOf("("));
+                    }
+                    ItemCard itemCard = new ItemCard(itemName, itemDesc, isChecked);
+                    itemList.add(itemCard);
+                }
+            }
+        }
+        //when the activity is opened for the first time
+        else {
+            ItemCard item1 = new ItemCard("Gmail", "Example Description", false);
+            ItemCard item2 = new ItemCard("Google", "Example Description", false);
+            ItemCard item3 = new ItemCard("Youtube", "Example Description", false);
+            itemList.add(item1);
+            itemList.add(item2);
+            itemList.add(item3);
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
