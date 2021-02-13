@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -69,7 +71,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //describing which gesture signifies what action is performed
+        //here, swiping left or right signifies deleting the entry
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT){
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                Snackbar.make(MainActivity.this, "Deleted an item", Snackbar.LENGTH_SHORT).show();
+                int position = viewHolder.getLayoutPosition();
+                itemList.remove(position);
+                rviewAdapter.notifyItemRemoved(position);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     @Override
