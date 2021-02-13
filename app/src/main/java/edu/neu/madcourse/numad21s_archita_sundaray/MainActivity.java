@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager rLayoutManager;
     private FloatingActionButton addButton;
 
+    private static final String NUMBER_OF_ITEMS = "NUMBER_OF_ITEMS";
+    private static final String KEY_OF_INSTANCE = "KEY_OF_INSTANCE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +91,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    //Retaining information on change in orientations
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState){
+        int size = itemList == null ? 0 : itemList.size();
+        outState.putInt(NUMBER_OF_ITEMS, size);
+
+        //need to generate unique key for each item
+        for (int i=0; i<size; i++) {
+            outState.putString(KEY_OF_INSTANCE + i + "0", itemList.get(i).getItemName());
+            outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemDesc());
+            outState.putBoolean(KEY_OF_INSTANCE + i + "2", itemList.get(i).getStatus());
+        }
+        super.onSaveInstanceState(outState);
+    }
+
+    private void init(Bundle savedInstanceState){
+        initialItemData(savedInstanceState);
+        createRecyclerView();
     }
 
     @Override
