@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     //essential components needed for Recycler View: RecyclerView, Adapter, LayoutManager
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                Snackbar.make(MainActivity.this, "Deleted an item", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(MainActivity.this, recyclerView, "Deleted an item", Snackbar.LENGTH_SHORT).show();
                 int position = viewHolder.getLayoutPosition();
                 itemList.remove(position);
                 rviewAdapter.notifyItemRemoved(position);
@@ -167,6 +168,12 @@ public class MainActivity extends AppCompatActivity {
         rviewAdapter.setOnItemClickListener(itemClickListener);
         recyclerView.setAdapter(rviewAdapter);
         recyclerView.setLayoutManager(rLayoutManager);
+    }
+
+    private void addItem(int position) {
+        itemList.add(position, new ItemCard("Dummy item", "ITEM id: " + Math.abs(new Random().nextInt(100000)), false));
+        Snackbar.make(MainActivity.this, recyclerView, "Add an item", Snackbar.LENGTH_SHORT).show();
+        rviewAdapter.notifyItemInserted(position);
     }
 
     @Override
