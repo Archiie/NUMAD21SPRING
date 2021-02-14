@@ -24,6 +24,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <!--    recycler view on java takes a list-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
