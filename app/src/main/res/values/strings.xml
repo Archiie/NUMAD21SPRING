@@ -21,4 +21,6 @@
     <string name="greetings">Hey, buddy!</string>
     <string name="linkCollectorButton">Link Collector</string>
     <string name="addLinks">Add</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_description">Description</string>
 </resources>

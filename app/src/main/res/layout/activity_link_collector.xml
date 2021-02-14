@@ -13,15 +13,17 @@
         tools:layout_editor_absoluteX="79dp"
         tools:layout_editor_absoluteY="56dp" />
 
-<!--    recycler view on java takes a list-->
-
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addLinks"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <!--    recycler view on java takes a list-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
