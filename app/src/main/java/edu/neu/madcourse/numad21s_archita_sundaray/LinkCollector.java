@@ -7,16 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -48,9 +51,11 @@ public class LinkCollector extends AppCompatActivity {
             }
         });
 
-        //start this activity to open url in the browser
-        Intent intent = new Intent(LinkCollector.this, LinkBrowser.class); //from - to mapping
-        startActivity(intent);
+//        EditText webLink = findViewById(R.id.item_desc);
+//        webLink.setOnClickListener(v -> {
+//            Intent intent = new Intent(LinkCollector.this, LinkBrowser.class); //from - to mapping
+//            startActivity(intent);
+//        });
 
 
         //describing which gesture signifies what action is performed
@@ -116,9 +121,9 @@ public class LinkCollector extends AppCompatActivity {
         }
         //when the activity is opened for the first time
         else {
-            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "Example Description", false);
-            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", "Example Description", false);
-            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", "Example Description", false);
+            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "https://www.google.com/gmail/about/#", false);
+            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", "https://www.google.com/", false);
+            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", "https://www.youtube.com", false);
             itemList.add(item1);
             itemList.add(item2);
             itemList.add(item3);
@@ -136,6 +141,11 @@ public class LinkCollector extends AppCompatActivity {
             public void onItemClick(int position) {
                 itemList.get(position).onItemClick(position);
                 rviewAdapter.notifyItemChanged(position);
+                //to open in web browser
+                System.out.println(itemList.get(position).getItemDesc());
+                Uri webLink = Uri.parse(itemList.get(position).getItemDesc());
+                Intent intent = new Intent(Intent.ACTION_VIEW, webLink); //from - to mapping
+                startActivity(intent);
             }
 
             @Override
