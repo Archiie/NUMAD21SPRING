@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +48,10 @@ public class LinkCollector extends AppCompatActivity {
             }
         });
 
+        //start this activity to open url in the browser
+        Intent intent = new Intent(LinkCollector.this, LinkBrowser.class); //from - to mapping
+        startActivity(intent);
+
 
         //describing which gesture signifies what action is performed
         //here, swiping left or right signifies deleting the entry
@@ -82,8 +87,6 @@ public class LinkCollector extends AppCompatActivity {
         }
         super.onSaveInstanceState(outState);
     }
-
-    //intent = new intent() to open url
 
     private void init(Bundle savedInstanceState){
         initialItemData(savedInstanceState);

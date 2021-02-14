@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".LinkBrowser">
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="245dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
