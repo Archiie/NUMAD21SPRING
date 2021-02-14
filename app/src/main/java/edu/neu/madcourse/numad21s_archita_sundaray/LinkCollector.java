@@ -83,6 +83,8 @@ public class LinkCollector extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+    //intent = new intent() to open url
+
     private void init(Bundle savedInstanceState){
         initialItemData(savedInstanceState);
         createRecyclerView();

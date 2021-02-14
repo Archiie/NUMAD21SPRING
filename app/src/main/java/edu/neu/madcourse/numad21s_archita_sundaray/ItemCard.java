@@ -18,7 +18,7 @@ public class ItemCard implements ItemClickListener {
     }
 
     public String getItemName() {
-        return itemName + (isChecked ? "checked" : "unchecked");
+        return itemName + (isChecked ? "（checked）" : "");
     }
 
     public String getItemDesc() {
