@@ -75,9 +75,10 @@ public class LinkCollector extends AppCompatActivity {
 
         //need to generate unique key for each item
         for (int i=0; i<size; i++) {
-            outState.putString(KEY_OF_INSTANCE + i + "0", itemList.get(i).getItemName());
-            outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemDesc());
-            outState.putBoolean(KEY_OF_INSTANCE + i + "2", itemList.get(i).getStatus());
+            outState.putInt(KEY_OF_INSTANCE + i + "0", itemList.get(i).getImageSource());
+            outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemName());
+            outState.putString(KEY_OF_INSTANCE + i + "2", itemList.get(i).getItemDesc());
+            outState.putBoolean(KEY_OF_INSTANCE + i + "3", itemList.get(i).getStatus());
         }
         super.onSaveInstanceState(outState);
     }
@@ -94,24 +95,25 @@ public class LinkCollector extends AppCompatActivity {
                 int size = savedInstanceState.getInt(NUMBER_OF_ITEMS);
                 //retrieving keys that were stored in the instance
                 for (int i = 0; i < size; i++) {
-                    String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + 0);
-                    String itemDesc = savedInstanceState.getString(KEY_OF_INSTANCE + i + 1);
-                    boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + 2);
+                    Integer imgId = savedInstanceState.getInt(KEY_OF_INSTANCE + i + "0");
+                    String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + "1");
+                    String itemDesc = savedInstanceState.getString(KEY_OF_INSTANCE + i + "2");
+                    boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + "3");
 
                     //making sure that there are no duplicates like this: "XXX(checked)"
                     if (isChecked) {
                         itemName = itemName.substring(0, itemName.lastIndexOf("("));
                     }
-                    ItemCard itemCard = new ItemCard(itemName, itemDesc, isChecked);
+                    ItemCard itemCard = new ItemCard(imgId, itemName, itemDesc, isChecked);
                     itemList.add(itemCard);
                 }
             }
         }
         //when the activity is opened for the first time
         else {
-            ItemCard item1 = new ItemCard("Gmail", "Example Description", false);
-            ItemCard item2 = new ItemCard("Google", "Example Description", false);
-            ItemCard item3 = new ItemCard("Youtube", "Example Description", false);
+            ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "Example Description", false);
+            ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", "Example Description", false);
+            ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", "Example Description", false);
             itemList.add(item1);
             itemList.add(item2);
             itemList.add(item3);
@@ -143,7 +145,7 @@ public class LinkCollector extends AppCompatActivity {
     }
 
     private void addItem(int position) {
-        itemList.add(position, new ItemCard("Dummy item", "ITEM id: " + Math.abs(new Random().nextInt(100000)), false));
+        itemList.add(position, new ItemCard(R.drawable.empty, "Dummy item", "ITEM id: " + Math.abs(new Random().nextInt(100000)), false));
         Snackbar.make(LinkCollector.this, recyclerView, "Add an item", Snackbar.LENGTH_SHORT).show();
         rviewAdapter.notifyItemInserted(position);
     }
