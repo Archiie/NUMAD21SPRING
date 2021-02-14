@@ -148,7 +148,7 @@ public class LinkCollector extends AppCompatActivity {
 
     private void addItem(int position) {
         itemList.add(position, new ItemCard(R.drawable.empty, "Dummy item", "ITEM id: " + Math.abs(new Random().nextInt(100000)), false));
-        Snackbar.make(LinkCollector.this, recyclerView, "Add an item", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(LinkCollector.this, recyclerView, "Added an item", Snackbar.LENGTH_SHORT).show();
         rviewAdapter.notifyItemInserted(position);
     }
 
