@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21S_Archita_Sundaray">
         <activity android:name=".LinkBrowser"></activity>
-        <activity android:name=".LinkCollector" /> <!-- crashes if not present -->
+        <activity android:name=".LinkCollector"
+            android:configChanges="orientation|keyboard|screenSize" /> <!-- crashes if not present -->
         <activity
             android:name=".ClickyClicky"
             android:configChanges="orientation|keyboard|screenSize" />
