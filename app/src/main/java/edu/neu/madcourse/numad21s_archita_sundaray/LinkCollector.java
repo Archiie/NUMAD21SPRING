@@ -23,7 +23,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class LinkCollector extends AppCompatActivity {
+public class LinkCollector extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
     //essential components needed for Recycler View: RecyclerView, Adapter, LayoutManager
     private ArrayList<ItemCard> itemList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -40,14 +40,12 @@ public class LinkCollector extends AppCompatActivity {
         setContentView(R.layout.activity_link_collector);
 
         //action listener to the button
-        //do I do this separately or can I add it to the above code?
         init(savedInstanceState);
         addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                int pos = 0;
-                addItem(pos);
+                openDialogBox();
             }
         });
 
@@ -70,6 +68,17 @@ public class LinkCollector extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
+    private void openDialogBox() {
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getSupportFragmentManager(), "example dialog");
+    }
+
+    @Override
+    public void applyTexts(String appName, String url) {
+        ItemCard itemCard = new ItemCard(R.drawable.empty, appName, url);
+        itemList.add(itemCard);
+    }
+
     //Retaining information on change in orientations
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -81,7 +90,6 @@ public class LinkCollector extends AppCompatActivity {
             outState.putInt(KEY_OF_INSTANCE + i + "0", itemList.get(i).getImageSource());
             outState.putString(KEY_OF_INSTANCE + i + "1", itemList.get(i).getItemName());
             outState.putString(KEY_OF_INSTANCE + i + "2", itemList.get(i).getItemDesc());
-            //outState.putBoolean(KEY_OF_INSTANCE + i + "3", itemList.get(i).getStatus());
         }
         super.onSaveInstanceState(outState);
     }
@@ -101,13 +109,7 @@ public class LinkCollector extends AppCompatActivity {
                     Integer imgId = savedInstanceState.getInt(KEY_OF_INSTANCE + i + "0");
                     String itemName = savedInstanceState.getString(KEY_OF_INSTANCE + i + "1");
                     String itemDesc = savedInstanceState.getString(KEY_OF_INSTANCE + i + "2");
-                    //boolean isChecked = savedInstanceState.getBoolean(KEY_OF_INSTANCE + i + "3");
 
-                    //making sure that there are no duplicates like this: "XXX(checked)"
-//                    if (isChecked) {
-//                        itemName = itemName.substring(0, itemName.lastIndexOf("("));
-//                    }
-                    //ItemCard itemCard = new ItemCard(imgId, itemName, itemDesc, isChecked);
                     ItemCard itemCard = new ItemCard(imgId, itemName, itemDesc);
                     itemList.add(itemCard);
                 }
@@ -115,7 +117,6 @@ public class LinkCollector extends AppCompatActivity {
         }
         //when the activity is opened for the first time
         else {
-            //ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "https://www.google.com/gmail/about/#", false);
             ItemCard item1 = new ItemCard(R.drawable.pic_gmail_01, "Gmail", "https://www.google.com/gmail/about/#");
             ItemCard item2 = new ItemCard(R.drawable.pic_google_01, "Google", "https://www.google.com/");
             ItemCard item3 = new ItemCard(R.drawable.pic_youtube_01, "Youtube", "https://www.youtube.com");
@@ -152,12 +153,6 @@ public class LinkCollector extends AppCompatActivity {
         rviewAdapter.setOnItemClickListener(itemClickListener);
         recyclerView.setAdapter(rviewAdapter);
         recyclerView.setLayoutManager(rLayoutManager);
-    }
-
-    private void addItem(int position) {
-        itemList.add(position, new ItemCard(R.drawable.empty, "Dummy item", "ITEM id: " + Math.abs(new Random().nextInt(100000))));
-        Snackbar.make(LinkCollector.this, recyclerView, "Added an item", Snackbar.LENGTH_SHORT).show();
-        rviewAdapter.notifyItemInserted(position);
     }
 
     @Override
