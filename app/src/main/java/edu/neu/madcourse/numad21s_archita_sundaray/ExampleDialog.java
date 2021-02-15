@@ -10,14 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 public class ExampleDialog extends AppCompatDialogFragment {
     private EditText editTextAppName;
     private EditText editTextUrl;
     private ExampleDialogListener listener;
-
-    private RecyclerView recyclerView;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
