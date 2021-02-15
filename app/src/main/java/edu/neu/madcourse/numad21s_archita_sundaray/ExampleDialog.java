@@ -31,7 +31,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String appName = editTextAppName.getText().toString();
-                        String url = editTextUrl.getText().toString();
+                        String url = editTextUrl.getText().toString().toLowerCase();
                         //validation of url:
                         String[] urlParts = url.split("\\.");
                         System.out.println(urlParts);
