@@ -10,10 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ExampleDialog extends AppCompatDialogFragment {
     private EditText editTextAppName;
     private EditText editTextUrl;
     private ExampleDialogListener listener;
+
+    private RecyclerView recyclerView;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -32,7 +36,14 @@ public class ExampleDialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String appName = editTextAppName.getText().toString();
                         String url = editTextUrl.getText().toString();
-                        listener.applyTexts(appName, url);
+                        //validation of url:
+                        String[] urlParts = url.split("\\.");
+                        System.out.println(urlParts);
+                        if (urlParts[0].equals("https://www")) {
+                            listener.applyTexts(appName, url);
+                        } else {
+                            listener.applyTexts("Default", "https://www.google.com");
+                        }
                     }
                 });
         editTextAppName = view.findViewById(R.id.edit_appname);
@@ -46,8 +57,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         try {
             listener = (ExampleDialogListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() +
-                    "must implement ExampleDialogListener");
+            throw new ClassCastException(context.toString() + "must implement ExampleDialogListener");
         }
     }
 

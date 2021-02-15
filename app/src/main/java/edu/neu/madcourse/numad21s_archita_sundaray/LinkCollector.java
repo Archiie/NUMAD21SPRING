@@ -77,6 +77,11 @@ public class LinkCollector extends AppCompatActivity implements ExampleDialog.Ex
     public void applyTexts(String appName, String url) {
         ItemCard itemCard = new ItemCard(R.drawable.empty, appName, url);
         itemList.add(itemCard);
+        if (!appName.equals("Default")) {
+            Snackbar.make(LinkCollector.this, recyclerView, "Added an item", Snackbar.LENGTH_SHORT).show();
+        } else {
+            Snackbar.make(LinkCollector.this, recyclerView, "On receiving invalid URL, default Google is set", Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     //Retaining information on change in orientations
