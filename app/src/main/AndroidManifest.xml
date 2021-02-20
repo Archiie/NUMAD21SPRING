@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_as_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21S_Archita_Sundaray">
-        <activity android:name=".LinkBrowser"></activity>
-        <activity android:name=".LinkCollector"
+        <activity android:name=".Locator"></activity>
+        <activity android:name=".LinkBrowser" />
+        <activity
+            android:name=".LinkCollector"
             android:configChanges="orientation|keyboard|screenSize" /> <!-- crashes if not present -->
         <activity
             android:name=".ClickyClicky"

@@ -54,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LinkCollector.class); //from - to mapping
             startActivity(intent); //this executes the intent
         });
+
+        //action listener to the "Locator" button
+        Button locator = findViewById(R.id.locator);
+        locator.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Locator.class);
+            startActivity(intent);
+        });
     }
 
 
