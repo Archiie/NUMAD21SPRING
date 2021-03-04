@@ -27,4 +27,6 @@
     <string name="locator">Locator</string>
     <string name="buttonLocation">Get Location</string>
     <string name="atYourService">At Ur Service</string>
+    <string name="web_dest_text">https://twitter.com/Northeastern</string>
+    <string name="web_dest">Launch Website</string>
 </resources>

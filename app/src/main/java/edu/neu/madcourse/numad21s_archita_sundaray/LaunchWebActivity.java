@@ -11,4 +11,6 @@ public class LaunchWebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_web);
     }
+
+
 }
