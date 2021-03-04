@@ -26,4 +26,5 @@
     <string name="description">This image acts as an icon.</string>
     <string name="locator">Locator</string>
     <string name="buttonLocation">Get Location</string>
+    <string name="atYourService">At Ur Service</string>
 </resources>
