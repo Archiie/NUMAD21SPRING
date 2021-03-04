@@ -25,4 +25,8 @@ public class AtYourService extends AppCompatActivity {
     public void startWebServiceActivity(View view) {
         startActivity(new Intent(AtYourService.this, WebServiceActivity.class));
     }
+
+    public void startNetworkInfoActivity(View view) {
+        startActivity(new Intent(AtYourService.this, NetworkInfoActivity.class));
+    }
 }
