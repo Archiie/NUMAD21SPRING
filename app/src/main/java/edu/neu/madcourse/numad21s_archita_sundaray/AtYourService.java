@@ -17,4 +17,8 @@ public class AtYourService extends AppCompatActivity {
     public void startLaunchWebActivity(View view) {
         startActivity(new Intent(AtYourService.this, LaunchWebActivity.class));
     }
+
+    public void startWebViewActivity(View view) {
+        startActivity(new Intent(AtYourService.this, WebViewActivity.class));
+    }
 }
