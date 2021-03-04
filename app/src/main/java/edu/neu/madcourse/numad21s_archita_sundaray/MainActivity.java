@@ -61,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Locator.class);
             startActivity(intent);
         });
+
+        //action listener to the "At Ur Service" button
+        Button atUrService = findViewById(R.id.atYourServiceButton);
+        atUrService.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AtYourService.class);
+            startActivity(intent);
+        });
     }
 
 

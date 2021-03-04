@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".AtYourService">
 
+    <Button
+        android:id="@+id/launchWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Launch Website"
+        app:layout_constraintBottom_toTopOf="@+id/webView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/webView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Web View"
+        app:layout_constraintBottom_toTopOf="@+id/webService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/launchWebsite" />
+
+    <Button
+        android:id="@+id/webService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Web Service"
+        app:layout_constraintBottom_toTopOf="@+id/networkInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webView" />
+
+    <Button
+        android:id="@+id/networkInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Network Info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webService" />
 </androidx.constraintlayout.widget.ConstraintLayout>
