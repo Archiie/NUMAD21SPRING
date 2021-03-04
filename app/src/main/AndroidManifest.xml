@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_as_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21S_Archita_Sundaray">
-        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".WebServiceActivity"></activity>
+        <activity android:name=".WebViewActivity" />
         <activity android:name=".LaunchWebActivity" />
         <activity android:name=".AtYourService" />
         <activity
