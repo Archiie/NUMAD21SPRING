@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,40 +13,108 @@
         android:text="https://api.zippopotam.us/us/02115" />
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/pingWebServiceBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ping Web Service"
-        android:onClick="callWebserviceButtonHandler"/>
+        android:layout_marginBottom="32dp"
+        android:onClick="callWebserviceButtonHandler"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/URL_editText"/>
+
+    <TextView
+        android:id="@+id/cityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/purple_500"
+        android:fontFamily="cursive"
+        android:layout_below="@+id/pingWebServiceBtn"
+        android:text="City :" />
 
     <TextView
         android:id="@+id/result_textview1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="false"
-        android:text="" />
+        android:textSize="26dp"
+        android:layout_below="@+id/pingWebServiceBtn"
+        android:layout_toRightOf="@+id/cityText"
+        android:text="***" />
+
+    <TextView
+        android:id="@+id/stateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/purple_500"
+        android:fontFamily="cursive"
+        android:layout_below="@+id/cityText"
+        android:text="State :" />
 
     <TextView
         android:id="@+id/result_textview2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="false"
-        android:text="" />
+        android:textSize="26dp"
+        android:layout_below="@+id/cityText"
+        android:layout_toRightOf="@+id/stateText"
+        android:text="***" />
+
+    <TextView
+        android:id="@+id/latitudeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/purple_500"
+        android:fontFamily="cursive"
+        android:layout_below="@+id/stateText"
+        android:text="Latitude :" />
 
     <TextView
         android:id="@+id/result_textview3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="false"
-        android:text="" />
+        android:textSize="26dp"
+        android:layout_below="@+id/stateText"
+        android:layout_toRightOf="@+id/latitudeText"
+        android:text="***" />
+
+    <TextView
+        android:id="@+id/longitudeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/purple_500"
+        android:fontFamily="cursive"
+        android:layout_below="@+id/latitudeText"
+        android:text="Longitude :" />
 
     <TextView
         android:id="@+id/result_textview4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="false"
-        android:text="" />
+        android:textSize="26dp"
+        android:layout_below="@+id/latitudeText"
+        android:layout_toRightOf="@+id/longitudeText"
+        android:text="***" />
 
-</LinearLayout>
+</RelativeLayout>
 
 
 
