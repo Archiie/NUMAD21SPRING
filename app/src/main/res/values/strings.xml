@@ -29,4 +29,11 @@
     <string name="atYourService">At Ur Service</string>
     <string name="web_dest_text">https://www.northeastern.edu</string>
     <string name="web_dest">Launch Website</string>
+    <string name="webServiceUrl">https://api.zippopotam.us/us/02115</string>
+    <string name="webServiceButton">Ping Web Service</string>
+    <string name="blank">***</string>
+    <string name="city">City :</string>
+    <string name="state">State :</string>
+    <string name="latitude">Latitude :</string>
+    <string name="longitude">Longitude :</string>
 </resources>
