@@ -11,8 +11,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/URL_editText"
         android:text="https://api.zippopotam.us/us/02115" />
-<!--        android:text="https://community-open-weather-map.p.rapidapi.com/weather" />-->
-    <!--        android:text="https://jsonplaceholder.typicode.com/posts/1"/>-->
 
     <Button
         android:layout_width="match_parent"
