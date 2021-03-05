@@ -23,6 +23,9 @@ import java.net.URL;
 public class WebServiceActivity extends AppCompatActivity {
     private static final String TAG = "WebServiceActivity";
     private TextView mPlaceTextView;
+    private TextView mStateTextView;
+    private TextView mLatitudeTextView;
+    private TextView mLongitudeTextView;
     private EditText mURLEditText;
 
     @Override
@@ -32,6 +35,9 @@ public class WebServiceActivity extends AppCompatActivity {
 
         mURLEditText = (EditText)findViewById(R.id.URL_editText);
         mPlaceTextView = (TextView)findViewById(R.id.result_textview1);
+        mStateTextView = (TextView)findViewById(R.id.result_textview2);
+        mLatitudeTextView = (TextView)findViewById(R.id.result_textview3);
+        mLongitudeTextView = (TextView)findViewById(R.id.result_textview4);
     }
 
     public void callWebserviceButtonHandler(View view){
@@ -96,13 +102,30 @@ public class WebServiceActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject jObject) {
             super.onPostExecute(jObject);
             TextView result_view1 = (TextView)findViewById(R.id.result_textview1);
+            TextView result_view2 = (TextView)findViewById(R.id.result_textview2);
+            TextView result_view3 = (TextView)findViewById(R.id.result_textview3);
+            TextView result_view4 = (TextView)findViewById(R.id.result_textview4);
 
             try {
                 JSONArray places = jObject.getJSONArray("places");
-                JSONObject place_name = places.getJSONObject(0);
-                String placeName = place_name.getString("place name");
+                JSONObject placeObj = places.getJSONObject(0);
 
+                //shows the city
+                String placeName = placeObj.getString("place name");
                 result_view1.setText(placeName);
+
+                //shows the state
+                String state = placeObj.getString("state");
+                result_view2.setText(state);
+
+                //shows the latitude
+                String latitude = placeObj.getString("latitude");
+                result_view3.setText(latitude);
+
+                //shows the longitude
+                String longitude = placeObj.getString("longitude");
+                result_view4.setText(longitude);
+
             } catch (JSONException e) {
                 e.printStackTrace();
                 result_view1.setText("Something went wrong!");

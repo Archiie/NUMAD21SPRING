@@ -27,6 +27,27 @@
         android:singleLine="false"
         android:text="" />
 
+    <TextView
+        android:id="@+id/result_textview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/result_textview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/result_textview4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:text="" />
+
 </LinearLayout>
 
 
