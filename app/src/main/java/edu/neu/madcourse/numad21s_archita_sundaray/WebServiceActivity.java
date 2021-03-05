@@ -65,20 +65,12 @@ public class WebServiceActivity extends AppCompatActivity {
 
             JSONObject jObject = new JSONObject();
             try {
-
-                // Initial website is "https://jsonplaceholder.typicode.com/posts/1"
                 URL url = new URL(params[0]);
-//                URL url = new URL("https://jsonplaceholder.typicode.com/posts/1");
-                //System.out.println(url);
                 String resp = NetworkUtil.httpResponse(url); // Get String response from the url address
-                //Log.i("resp",resp);
 
-                // JSONArray jArray = new JSONArray(resp);    // Use this if your web service returns an array of objects.  Arrays are in [ ] brackets.
                 // Transform String into JSONObject
                 jObject = new JSONObject(resp);
 
-                //Log.i("jTitle",jObject.getString("title"));
-                //Log.i("jBody",jObject.getString("body"));
                 return jObject;
 
             } catch (MalformedURLException e) {
@@ -94,7 +86,6 @@ public class WebServiceActivity extends AppCompatActivity {
                 Log.e(TAG,"JSONException");
                 e.printStackTrace();
             }
-
             return jObject;
         }
 
