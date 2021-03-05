@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/webView_editText"
-        android:text="http://www.northeastern.edu/"/>
+        android:text="https://www.northeastern.edu/"/>
 
     <Button
         android:layout_height="wrap_content"
