@@ -1,7 +1,5 @@
 package edu.neu.madcourse.numad21s_archita_sundaray;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,18 +19,19 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+
 public class WebServiceActivity extends AppCompatActivity {
-    private TextView mTitleTextView;
-    private EditText mURLEditText;
     private static final String TAG = "WebServiceActivity";
+    private TextView mPlaceTextView;
+    private EditText mURLEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_service);
 
-        mTitleTextView = (TextView)findViewById(R.id.result_textview);
         mURLEditText = (EditText)findViewById(R.id.URL_editText);
+        mPlaceTextView = (TextView)findViewById(R.id.result_textview1);
     }
 
     public void callWebserviceButtonHandler(View view){
@@ -60,6 +62,8 @@ public class WebServiceActivity extends AppCompatActivity {
 
                 // Initial website is "https://jsonplaceholder.typicode.com/posts/1"
                 URL url = new URL(params[0]);
+//                URL url = new URL("https://jsonplaceholder.typicode.com/posts/1");
+                //System.out.println(url);
                 String resp = NetworkUtil.httpResponse(url); // Get String response from the url address
                 //Log.i("resp",resp);
 
@@ -91,14 +95,19 @@ public class WebServiceActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject jObject) {
             super.onPostExecute(jObject);
-            TextView result_view = (TextView)findViewById(R.id.result_textview);
+            TextView result_view1 = (TextView)findViewById(R.id.result_textview1);
 
             try {
-                result_view.setText(jObject.getString("title"));
-            } catch (JSONException e) {
-                result_view.setText("Something went wrong!");
-            }
+                JSONArray places = jObject.getJSONArray("places");
+                JSONObject place_name = places.getJSONObject(0);
+                String placeName = place_name.getString("place name");
 
+                result_view1.setText(placeName);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                result_view1.setText("Something went wrong!");
+            }
         }
+
     }
 }
