@@ -17,11 +17,21 @@
         android:roundIcon="@mipmap/ic_launcher_as_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21S_Archita_Sundaray">
-        <activity android:name=".NetworkInfoActivity"></activity>
-        <activity android:name=".WebServiceActivity" />
-        <activity android:name=".WebViewActivity" />
-        <activity android:name=".LaunchWebActivity" />
-        <activity android:name=".AtYourService" />
+        <activity
+            android:name=".NetworkInfoActivity"
+            android:configChanges="orientation|keyboard|screenSize" />
+        <activity
+            android:name=".WebServiceActivity"
+            android:configChanges="orientation|keyboard|screenSize" />
+        <activity
+            android:name=".WebViewActivity"
+            android:configChanges="orientation|keyboard|screenSize" />
+        <activity
+            android:name=".LaunchWebActivity"
+            android:configChanges="orientation|keyboard|screenSize" />
+        <activity
+            android:name=".AtYourService"
+            android:configChanges="orientation|keyboard|screenSize" />
         <activity
             android:name=".Locator"
             android:configChanges="orientation|keyboard|screenSize" />
