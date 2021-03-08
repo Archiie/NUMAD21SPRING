@@ -1,121 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent" >
 
-    <EditText
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/URL_editText"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/webServiceUrl" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/pingWebServiceBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/webServiceButton"
-        android:layout_marginBottom="32dp"
-        android:onClick="callWebserviceButtonHandler"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/URL_editText"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/URL_editText"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/webServiceUrl" />
 
-    <TextView
-        android:id="@+id/cityText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/purple_500"
-        android:fontFamily="cursive"
-        android:layout_below="@+id/pingWebServiceBtn"
-        android:text="@string/city" />
+        <Button
+            android:id="@+id/pingWebServiceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/webServiceButton"
+            android:layout_marginBottom="32dp"
+            android:onClick="callWebserviceButtonHandler"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/URL_editText"/>
 
-    <TextView
-        android:id="@+id/result_textview1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:textSize="26sp"
-        android:layout_below="@+id/pingWebServiceBtn"
-        android:layout_toEndOf="@+id/cityText"
-        android:text="@string/blank" />
+        <TextView
+            android:id="@+id/cityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/purple_500"
+            android:fontFamily="cursive"
+            android:layout_below="@+id/pingWebServiceBtn"
+            android:text="@string/city" />
 
-    <TextView
-        android:id="@+id/stateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/purple_500"
-        android:fontFamily="cursive"
-        android:layout_below="@+id/cityText"
-        android:text="@string/state" />
+        <TextView
+            android:id="@+id/result_textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="26sp"
+            android:layout_below="@+id/pingWebServiceBtn"
+            android:layout_toEndOf="@+id/cityText"
+            android:text="@string/blank" />
 
-    <TextView
-        android:id="@+id/result_textview2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:textSize="26sp"
-        android:layout_below="@+id/cityText"
-        android:layout_toEndOf="@+id/stateText"
-        android:text="@string/blank" />
+        <TextView
+            android:id="@+id/stateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/purple_500"
+            android:fontFamily="cursive"
+            android:layout_below="@+id/cityText"
+            android:text="@string/state" />
 
-    <TextView
-        android:id="@+id/latitudeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/purple_500"
-        android:fontFamily="cursive"
-        android:layout_below="@+id/stateText"
-        android:text="@string/latitude" />
+        <TextView
+            android:id="@+id/result_textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="26sp"
+            android:layout_below="@+id/cityText"
+            android:layout_toEndOf="@+id/stateText"
+            android:text="@string/blank" />
 
-    <TextView
-        android:id="@+id/result_textview3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:textSize="26sp"
-        android:layout_below="@+id/stateText"
-        android:layout_toEndOf="@+id/latitudeText"
-        android:text="@string/blank" />
+        <TextView
+            android:id="@+id/latitudeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/purple_500"
+            android:fontFamily="cursive"
+            android:layout_below="@+id/stateText"
+            android:text="@string/latitude" />
 
-    <TextView
-        android:id="@+id/longitudeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/purple_500"
-        android:fontFamily="cursive"
-        android:layout_below="@+id/latitudeText"
-        android:text="@string/longitude" />
+        <TextView
+            android:id="@+id/result_textview3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="26sp"
+            android:layout_below="@+id/stateText"
+            android:layout_toEndOf="@+id/latitudeText"
+            android:text="@string/blank" />
 
-    <TextView
-        android:id="@+id/result_textview4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:textSize="26sp"
-        android:layout_below="@+id/latitudeText"
-        android:layout_toEndOf="@+id/longitudeText"
-        android:text="@string/blank" />
+        <TextView
+            android:id="@+id/longitudeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/purple_500"
+            android:fontFamily="cursive"
+            android:layout_below="@+id/latitudeText"
+            android:text="@string/longitude" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/result_textview4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="26sp"
+            android:layout_below="@+id/latitudeText"
+            android:layout_toEndOf="@+id/longitudeText"
+            android:text="@string/blank" />
+
+    </RelativeLayout>
+</ScrollView>
